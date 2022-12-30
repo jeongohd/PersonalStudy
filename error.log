@@ -1,0 +1,6 @@
+-------------------
+예외발생시간 : Tue Dec 27 09:28:25 KST 2022
+java.lang.ArithmeticException: / by zero
+	at a.b.c.java_basic.Exception01.main(Exception01.java:20)
+예외메시지 : / by zero
+-------------------
