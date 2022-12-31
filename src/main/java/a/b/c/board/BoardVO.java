@@ -2,6 +2,8 @@ package a.b.c.board;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Data
@@ -9,6 +11,7 @@ public class BoardVO {
 	private int no;
 	private String title;
 	private String content;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Timestamp regdate;
 	private int viewcount;
 	private String filename_org;
@@ -22,9 +25,13 @@ public class BoardVO {
 	private int page;
 	private int startIdx;
 	private int pageRow;
+	
 	BoardVO(){
-		this.startIdx = 1;
-		this.pageRow = 10;
+		this(1,5);
+	}
+	BoardVO(int page, int pageRow){
+		this.page = page;
+		this.pageRow = pageRow;
 	}
 	
 }

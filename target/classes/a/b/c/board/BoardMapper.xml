@@ -3,7 +3,13 @@
 <mapper namespace="a.b.c.board.BoardMapper">
 
 <insert id="insert" parameterType="a.b.c.board.BoardVO">
-	insert into board (title,content,regdate,viewcount,filename_org,filename_real)
+	insert into board 
+		(title
+		,content
+		,regdate
+		,viewcount
+		,filename_org
+		,filename_real)
 	values (#{title}, #{content}, now(), 0, #{filename_org}, #{filename_real});
 </insert>
 
@@ -28,7 +34,7 @@
 	limit ${startIdx}, ${pageRow}
 </select>
 
-<select id="totalCount" parameterType="a.b.c.board.BoardVO">
+<select id="totalCount" parameterType="a.b.c.board.BoardVO" resultType="java.lang.Integer">
 	select count(*) from board 
 	<include refid="where"/>
 </select>

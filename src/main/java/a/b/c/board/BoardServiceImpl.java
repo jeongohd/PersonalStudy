@@ -30,19 +30,24 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public Map list(BoardVO vo) {
+		
+		// 총 게시물수
+		int totalCount = mapper.totalCount(vo); 
+		
+		// 총 페이지수
+		int totalPage = totalCount / vo.getPageRow(); 
+		if (totalCount % vo.getPageRow() > 0) totalPage++;
+		
 		// startIdx
 		int startIdx = (vo.getPage()-1) * vo.getPageRow(); 
 		vo.setStartIdx(startIdx);
 		List<BoardVO> list = mapper.list(vo);
-		// 총 게시물수
-		int totalCount = mapper.totalCount(vo); 
-		// 총 페이지수
-		int totalPage = totalCount / vo.getPageRow(); 
-		if (totalCount % vo.getPageRow() > 0) totalPage++;
+		
 		// 화면에 보여지는 처음페이지, 끝페이지
 		int endPage = (int)(Math.ceil(vo.getPage()/(double)(vo.getPageRow())) * vo.getPageRow());
 		int startPage = endPage-(vo.getPageRow()-1);
 		if (endPage > totalPage) endPage = totalPage;
+		
 		// 이전 다음
 		boolean prev = startPage > 1 ? true : false;
 		boolean next = endPage < totalPage ? true : false;

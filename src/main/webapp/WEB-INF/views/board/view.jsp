@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.net.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,13 +28,19 @@
 				업로드한 파일이 없습니다.
 			</td>
 		</c:if>
-		<c:if test="${data.filename_org }">
-			<td colspan="3">
-				<a href="/c/common/download.jsp?oName=${URLEncoder.encode(data.filename_org,'UTF-8')}&sName=${data.filename_real}" target="_blank">${data.filename_org } </a>
-			</td>
-		</c:if>
+		<!-- import="java.net.*"  넣어줘야 다운로드 정상작동.-->
+		<td colspan="3">
+			<a href="<%=request.getContextPath() %>/common/download.jsp?oName=${URLEncoder.encode(data.filename_org,'UTF-8')}&sName=${data.filename_real}" target="_blank">${data.filename_org } </a>
+		</td>
 	</tr>
 </table>
+<div class="btnSet clear">
+    <div class="fl_l">
+    	<a href="list.do" class="btn">목록으로</a>
+    	<a href="edit.do?no=${data.no}" class="btn">수정</a>
+    	<a href="javascript:del(${data.no});" class="btn">삭제</a>
+    </div>
+</div>
 
 </body>
 </html>
