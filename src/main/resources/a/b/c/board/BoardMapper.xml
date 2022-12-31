@@ -47,7 +47,7 @@
 	update board set viewcount = viewcount + 1 where no = #{no}; 
 </update>
 
-<update id="update" parameterType="java.lang.Integer">
+<update id="update" parameterType="a.b.c.board.BoardVO">
 	update board set 
 		title = #{title}
 		, content = #{content}

@@ -16,6 +16,7 @@ public class BoardVO {
 	private int viewcount;
 	private String filename_org;
 	private String filename_real;
+	private int filename_chk;
 	
 	// 검색
 	private String stype;

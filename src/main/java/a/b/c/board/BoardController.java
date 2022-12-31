@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
@@ -44,9 +45,38 @@ public class BoardController {
 		return "board/editForm";
 	}
 	
+	@RequestMapping("/edit.do")//파일삭제와 파일수정은 다른 처리!! if문 따로 작성
+	public String editeProcess(BoardVO vo,@RequestParam MultipartFile filename, HttpServletRequest req) {	
+		//파일삭제 체크를 했을때
+		if(vo.getFilename_chk() == 1) {
+			String fDirectory = req.getServletContext().getRealPath("/upload");
+			File file = new File(fDirectory + File.separator + vo.getFilename_real());
+				if(file.exists()) {
+					file.delete();
+				}
+		}
+		//글수정 + 파일추가 할때
+		if(!filename.isEmpty()) {
+			String org = filename.getOriginalFilename();
+			String ext = org.substring(org.lastIndexOf(".")); // .확장자
+			String real = new Date().getTime()+ext;
+			
+			String pate = req.getRealPath("/upload/");
+			try {
+				filename.transferTo(new File(pate+real));
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			vo.setFilename_org(org);
+			vo.setFilename_real(real);
+		}
+ 		service.update(vo);
+ 		
+		return "redirect:view.do?no="+vo.getNo();
+	}
+	
 	@PostMapping("/write.do")
 	public String ProcessToWrite(BoardVO vo, @RequestParam MultipartFile filename, HttpServletRequest req) {
-		System.out.println("++++++++++++++++++++");
 		if(!filename.isEmpty()) {
 			String org = filename.getOriginalFilename();
 			String ext = org.substring(org.lastIndexOf(".")); // .확장자

@@ -19,8 +19,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public boolean update(int no) {
-		return mapper.update(no) > 0 ? true : false;
+	public boolean update(BoardVO vo) {
+		return mapper.update(vo) > 0 ? true : false;
 	}
 
 	@Override
