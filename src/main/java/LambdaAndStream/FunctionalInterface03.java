@@ -36,7 +36,7 @@ public class FunctionalInterface03 {
 
         // 이어서 코딩할 것.
         Predicate<String> p2 = Predicate.isEqual(str1);
-//        System.out.println(p.test());
+//        System.out.println(p.WeirdSort());
 
 
 

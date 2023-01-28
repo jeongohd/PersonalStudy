@@ -63,8 +63,8 @@
 	
 	<!-- mongodb -->
 	<!-- <mongo:mongo-client id="mongoClient" connection-string="mongodb://아이디:비밀번호@호스트:포트/디비명"> -->
-<!--<mongo:mongo-client id="mongoClient" connection-string="mongodb://localhost:27017/test"/>
-	<mongo:db-factory id="mongoFactory" dbname="test" mongo-client-ref="mongoClient"/>
+<!--<mongo:mongo-client id="mongoClient" connection-string="mongodb://localhost:27017/WeirdSort"/>
+	<mongo:db-factory id="mongoFactory" dbname="WeirdSort" mongo-client-ref="mongoClient"/>
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg ref="mongoFactory"/>
 	</bean>	 -->

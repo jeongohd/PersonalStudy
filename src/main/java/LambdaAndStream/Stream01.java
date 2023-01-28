@@ -16,7 +16,7 @@ public class Stream01 {
         IntStream intStream1 = new Random().ints(5); // 난수 스트림. 크기 5.
 
         /*
-        컬렉션(List, Set, Map), 배열 -> Stream -> 중간연산(n번 실행) -> 최종연산(1번) -> 결과
+        컬렉션(List, Set, Map), 배열(Array) -> Stream -> 중간연산(n번 실행) -> 최종연산(1번) -> 결과
         */
 
         String[] strArr = {"dd", "aaa", "Cc", "dd", "b", "aaa"};

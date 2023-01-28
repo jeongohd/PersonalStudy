@@ -10,7 +10,7 @@ import java.util.Arrays;
     numlist의 원소를 n으로부터 가까운 순서대로 정렬한 배열을 return하도록 solution 함수를 완성해주세요.
 */
 
-public class test {
+public class WeirdSort {
     public static void main(String[] args) {
         int[] nums = {10000,20,36,47,40,6,10,7000};
         int n = 30;

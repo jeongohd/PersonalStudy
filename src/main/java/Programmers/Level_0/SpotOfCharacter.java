@@ -1,4 +1,4 @@
-package level_0;
+package Programmers.Level_0;
 
 // 캐릭터의 좌표
 // 머쓱이는 RPG게임을 하고 있습니다. 게임에는 up, down, left, right 방향키가 있으며 각 키를 누르면 위, 아래, 왼쪽, 오른쪽으로 한 칸씩 이동합니다.

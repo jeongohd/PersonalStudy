@@ -1,6 +1,4 @@
-package level_0;
-
-import java.util.Arrays;
+package Programmers.Level_0;
 
 
 // 문자열 밀기
