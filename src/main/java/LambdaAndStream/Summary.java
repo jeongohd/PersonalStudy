@@ -1,9 +1,11 @@
 package LambdaAndStream;
 
+import java.io.File;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Summary {
     public static void main(String[] args) {
@@ -59,6 +61,45 @@ public class Summary {
 //        List<Integer> list2 = IntStream.rangeClosed(1, 10).filter(v -> v % 2 != 0).boxed().collect(Collectors.toList());
 //        System.out.println(list2);
 
+
+        /** 파일배열에 확장자를 가져오고 중복제거한 후 대문자로 바꿔라 **/
+//        File[] fileArr = {new File("Ex1.java")
+//                , new File("Ex1.bak")
+//                , new File("Ex2.java")
+//                , new File("Ex1")
+//                , new File("Ex1.txt")};
+//
+//        List list = Stream.of(fileArr).map(v->v.getName())
+//                .filter(v->v.indexOf(".")!=-1)
+//                .map(v->v.substring(v.indexOf(".")+1))
+//                .map(String::toUpperCase)
+//                .distinct()
+//                .collect(Collectors.toList());
+//        System.out.println(list);
+
+
+        /** 해당 스트림을 한 스트림에 합치고 소문자로 바꾼 뒤 중복제거 후 리스트에 담아서 출력 **/
+//        Stream<String[]> strArrStrm = Stream.of (
+//                new String[]{"abc", "def", "jkl"}
+//                , new String[]{"ABC", "DEF", "JKL"}
+//        );
+//        // strArrStrm.flatMap(v->Stream.of(v)).collect(Collectors.toList());
+//        List list = strArrStrm.flatMap(Arrays::stream)
+//                .peek(v -> System.out.println(v))
+//                .map(String::toLowerCase)
+//                .distinct()
+//                .collect(Collectors.toList());
+//        System.out.println(list);
+
+
+        /** 소문자로 바꾸고 중복제거해서 단어 출력 **/
+//        String[] lineArr = {"Believe or not It is true", "Do or do not There is no try"};
+//        List<String> list = Arrays.stream(lineArr).flatMap(v -> Stream.of(v.split(" +")))
+//                .peek(v -> System.out.println(v))
+//                .map(String::toLowerCase)
+//                .distinct()
+//                .collect(Collectors.toList());
+//        System.out.println(list);
 
 
 
