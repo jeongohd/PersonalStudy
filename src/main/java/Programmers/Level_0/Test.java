@@ -7,60 +7,65 @@ import java.util.stream.Stream;
 
 public class Test {
     public static void main(String[] args) {
-        int n = 15;
+        int n = 40;
 
-        List<Integer> list= IntStream.rangeClosed(1, n).boxed().collect(Collectors.toList());
+        List<Integer> list= IntStream.rangeClosed(1, n)
+                .filter(v->v%3!=0)
+                .filter(v->!String.valueOf(v).contains("3"))
+                .boxed().collect(Collectors.toList());
         System.out.println(list);
 
-        System.out.println("13".contains("3"));
+        int lastVal = list.get(list.size()-1)+1;
+        System.out.println(lastVal);
 
-
-        for (int i = 0; i < list.size(); i++) {
-            if ((list.get(i) % 3 == 0) || String.valueOf(list.get(i)).contains("3")) {
-                list.remove(list.get(i));
-                int last = list.get(list.size()-1)+1;
-                System.out.println(last);
-
-                String lastStr = last+"";
-                boolean flag = true;
-                while (flag) {
-                    if(last%3==0){
-                        last++;
-                    } else if (lastStr.contains("3")) {
-                        lastStr = (Integer.parseInt(lastStr)+1)+"";
-                        last++;
-                    } else {
-                        flag = false;
-                    }
-//                    System.out.println(last);
-                }
-                list.add(last);
-
-//                int last = list.get(list.size()) + 1;
-//                String lastStr = last+"";
-//                while (lastStr.contains("3") || (last % 3 == 0)) {
-//                    last++;
-//                    lastStr = (Integer.parseInt(lastStr)+1)+"";
-//                    System.out.println(last);
-//                    System.out.println(lastStr);
-//                }
-//                list.add(last);
-
-//                for (int j = 0; j < list.size() - 1; j++) {
-//
-//                    int k = 1;
-//                    int last = list.get(list.size()-1) + k;
-//                    String strLast = last +"";
-//                    if (!(last % 3 == 0 || strLast.contains("3"))) {
-//                        list.add(last);
-//                    } else {
-//                        k++;
-//                    }
-//                }
+        while (list.size() < n) {
+            if (lastVal % 3 == 0 ) {
+                lastVal++;
+            } else if (String.valueOf(lastVal).indexOf("3") != -1){
+                lastVal++;
+            } else {
+                list.add(lastVal);
+                lastVal++;
             }
         }
         System.out.println(list);
+    }
+}
 
 
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+
+        for (int i = 1; i <= n; i++) {
+            answer++;
+            if (answer % 3 == 0 || String.valueOf(answer).contains("3")) {
+                i--;
+            }
+        }
+
+        return answer;
+    }
+}
+
+
+class Solution2 {
+    public int solution(int n) {
+        int answer = 0;
+
+        for (int i = 1; i <= n; i++) {
+            answer = get3xNationNumber(answer + 1);
+        }
+        return answer;
+    }
+
+    private int get3xNationNumber(int n) {
+        if (n % 3 == 0) {
+            return get3xNationNumber(n + 1);
+        }
+        if (String.valueOf(n).contains("3")) {
+            return get3xNationNumber(n + 1);
+        }
+        return n;
     }
 }
