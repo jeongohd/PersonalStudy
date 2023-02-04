@@ -31,10 +31,7 @@ public class NumberOfCurse {
         }
         System.out.println(list);
     }
-}
 
-
-class Solution {
     public int solution(int n) {
         int answer = 0;
 
@@ -46,11 +43,10 @@ class Solution {
         }
         return answer;
     }
-}
 
 
-class Solution2 {
-    public int solution(int n) {
+
+    public int solution2(int n) {
         int answer = 0;
 
         for (int i = 1; i <= n; i++) {
@@ -69,3 +65,6 @@ class Solution2 {
         return n;
     }
 }
+
+
+

@@ -38,9 +38,8 @@ public class PlusOfFormula {
 
 
     }
-}
 
-class Solution3 {
+
     public String solution(String polynomial) {
         int xCount = 0;
         int num = 0;
@@ -54,3 +53,4 @@ class Solution3 {
         return (xCount != 0 ? xCount > 1 ? xCount + "x" : "x" : "") + (num != 0 ? (xCount != 0 ? " + " : "") + num : xCount == 0 ? "0" : "");
     }
 }
+

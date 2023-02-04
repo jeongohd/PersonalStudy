@@ -27,9 +27,7 @@ public class LengthOfLine {
 
         System.out.println(answer);
     }
-}
 
-class Solution5 {
     public int solution(int[][] lines) {
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -53,3 +51,4 @@ class Solution5 {
         return answer;
     }
 }
+

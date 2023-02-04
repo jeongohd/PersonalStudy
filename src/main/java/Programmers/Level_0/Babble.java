@@ -20,13 +20,8 @@ public class Babble {
         System.out.println(answer);
 
 
-
-
-
-
     }
-}
-class Solution4 {
+
     public int solution(String[] babbling) {
         int answer = 0;
 
@@ -43,4 +38,5 @@ class Solution4 {
 
         return answer;
     }
+
 }
