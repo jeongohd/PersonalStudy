@@ -24,6 +24,7 @@ public class StringTokenizer02 {
 				,(long)Math.pow(10, 9) ,(long)Math.pow(10, 12)};
 		
 		StringTokenizer st = new StringTokenizer(input, UNIT, true);
+		// 삼십만삼천백십오, 십백천만억조, true -> 단위로 쪼갬
 		
 		while(st.hasMoreTokens()) {
 			String token = st.nextToken();
