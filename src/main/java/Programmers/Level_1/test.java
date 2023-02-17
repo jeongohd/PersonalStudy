@@ -4,6 +4,7 @@ import org.apache.lucene.search.MultiCollectorManager;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 // k번째 수
@@ -35,12 +36,6 @@ public class test {
             answer[x] = Integer.parseInt(String.valueOf(joining2.charAt(commands[x][2]-1)));
         }
         System.out.println(Arrays.toString(answer));
-
-
-
-
-
-
 
 
     }
